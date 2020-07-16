@@ -32,6 +32,8 @@ Open a terminal, run the built container and build the code.
 sudo docker-compose up --build
 ```
 
-wait until installation is complete (the first time it can take a couple of minutes), then go to 
+wait until installation is complete (the first time it can take a couple of minutes), then type 
 localhost in your browser to use the ethnic prediction system.
 
+Demo:<br/>
+![image](https://github.com/sralex/keras_gunicorn_nginx_flask/blob/master/demo.png)
