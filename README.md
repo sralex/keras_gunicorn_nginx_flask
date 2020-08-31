@@ -1,6 +1,6 @@
 # Flask + Keras + Gunicorn + nginx + docker
 
-This is a small AI deployment demo with Flask + Keras + Gunicorn + nginx + docker. Please consider, the model used is for demonstration purposes (does not achieve good results yet).
+Ready-To-Deploy Flask-Keras application with docker compose, Guniicorn and nginx. Please consider, the model used is for demonstration purposes (does not achieve good results yet).
 
 Here you will find an `` app/main.py `` file that contains all the functionalities related to the IA model.
 
