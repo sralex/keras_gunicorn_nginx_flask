@@ -1,20 +1,12 @@
-FROM continuumio/miniconda3
+From ubuntu:18.04
 
-ENV APP_ROOT /src
-ENV CONFIG_ROOT /config
+RUN apt-get update
+RUN apt-get install python python3-pip -y
+RUN mkdir /app
+COPY app/ /app/
 
+RUN pip3 install -r /app/requirements.txt
 
-RUN mkdir ${CONFIG_ROOT}
-COPY /app/environment.yml ${CONFIG_ROOT}/environment.yml
-RUN /opt/conda/bin/conda env create -f ${CONFIG_ROOT}/environment.yml
+WORKDIR /app/
 
-
-SHELL ["conda", "run", "-n", "keras_gunicorn_nginx_flask", "/bin/bash", "-c"]
-
-
-RUN mkdir ${APP_ROOT}
-WORKDIR ${APP_ROOT}
-
-ADD /app/ ${APP_ROOT}
-
-ENTRYPOINT ["conda", "run", "-n", "keras_gunicorn_nginx_flask", "gunicorn","--workers=2", "--bind=0.0.0.0:8000","main:app"]
+ENTRYPOINT ["gunicorn","--workers=2", "--bind=0.0.0.0:8000","main:app"]
